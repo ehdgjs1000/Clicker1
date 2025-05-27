@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private TextMeshProUGUI monsterName;
     [SerializeField] private TextMeshProUGUI gameLevelText;
+    [SerializeField] private Image timerImage;
+    [SerializeField] private TextMeshProUGUI timerText;
+
+    [SerializeField] private TextMeshProUGUI goldText;
+    public float gold = 0;
 
     //Game Level System
     private int gameLevel = 1;
@@ -24,6 +29,21 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         gameLevelText.text = gameLevel.ToString();
+    }
+    public void GoldUpdate()
+    {
+        goldText.text = gold.ToString();
+    }
+    public void ResetTimer()
+    {
+
+
+    }
+    public IEnumerator RoundClear()
+    {
+        gameLevel++;
+        MonsterSpawner.instance.SpawnMonster(gameLevel);
+        yield return null;
     }
 
     public void InitMonster(float _initHp, float _nowHp, string _monsterName)

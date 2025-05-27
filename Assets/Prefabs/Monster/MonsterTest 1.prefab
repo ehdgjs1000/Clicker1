@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c138ca824a8e141aa96b8486ec27bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterName: "\uAE40"
+  monsterName: "\uB098"
   hp: 500
   regenHpAmount: 1
   regenHpTime: 3

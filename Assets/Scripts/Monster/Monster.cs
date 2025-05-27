@@ -12,6 +12,7 @@ public class Monster : MonoBehaviour
     [SerializeField] protected float regenHpTime;
     private float tempRegenHpTime;
     private int gold;
+    private bool isDie = false;
 
 
     protected void InitMonster(float _hp, float _regenHpAmount, float _regenHpTime, string _monsterName)
@@ -27,6 +28,7 @@ public class Monster : MonoBehaviour
     {
         regenHpTime -= Time.deltaTime;
         if (regenHpTime <= 0.0f) RegenHp();
+        if (hp <= 0.0f) hp = 0.0f;
 
     }
     private void Start()
@@ -38,9 +40,8 @@ public class Monster : MonoBehaviour
     {
         hp -= _damage;
         GameManager.instance.HpGageUpdate(initHp, hp);
-        if (hp <= 0.0f)
+        if (hp <= 0.0f && !isDie)
         {
-            hp = 0.0f;
             Die();
         }
     }
@@ -53,7 +54,14 @@ public class Monster : MonoBehaviour
     protected void Die()
     {
         Debug.Log("Monster Die");
-        
+        isDie = true;
+
+        //GameManager
+        GameManager.instance.gold += gold;
+        GameManager.instance.GoldUpdate();
+
+        Destroy(this.gameObject);
+        StartCoroutine(GameManager.instance.RoundClear());
     } 
 
 }
