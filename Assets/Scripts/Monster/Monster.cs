@@ -38,6 +38,9 @@ public class Monster : MonoBehaviour
     }
     public void GetDamage(float _damage)
     {
+        FloatingDamage.Create(new Vector3(this.transform.position.x, this.transform.position.y+1f,
+            this.transform.position.z), _damage);
+
         hp -= _damage;
         GameManager.instance.HpGageUpdate(initHp, hp);
         if (hp <= 0.0f && !isDie)

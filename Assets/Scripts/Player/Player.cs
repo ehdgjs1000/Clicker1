@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public bool canAutoAttack = false;
     private float autoAttackTerm = 0.5f;
 
+    Vector2 mousePos;
     public float damage;
     public WeaponData equipedWeapon;
 
@@ -30,20 +31,21 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            Attack();
+            //수정하기
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Attack(new Vector3(0,1,0));
         }
     }
     public void WeaponChange(WeaponData _weaponData)
     {
         equipedWeapon = _weaponData;
     }
-    private void Attack()
+    private void Attack(Vector3 _clickPos)
     {
         GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
         Monster monster = enemy.GetComponent<Monster>();
         monster.GetDamage(equipedWeapon.damage);
-        Instantiate(equipedWeapon.hitParticcle, new Vector3(enemy.transform.position.x,
-            enemy.transform.position.y, enemy.transform.position.z)
+        Instantiate(equipedWeapon.hitParticcle, _clickPos
             , Quaternion.identity);
     }
     private void AutoAttack()
