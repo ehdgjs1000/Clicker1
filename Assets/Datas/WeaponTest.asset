@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   autoAttackTerm: 0.5
+  weaponImage: {fileID: 21300000, guid: a4575d8d00f2e1b41b2f618fdc71d63c, type: 3}
+  weaponGrade: 0
   hitParticcle: {fileID: 5880797563141009103, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}

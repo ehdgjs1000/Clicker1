@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
             Attack();
         }
     }
+    public void WeaponChange(WeaponData _weaponData)
+    {
+        equipedWeapon = _weaponData;
+    }
     private void Attack()
     {
         GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
