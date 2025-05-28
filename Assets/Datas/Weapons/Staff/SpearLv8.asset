@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5abc2d8c8d4662f448a840cc42060651, type: 3}
-  m_Name: WeaponTest2
+  m_Name: SpearLv8
   m_EditorClassIdentifier: 
-  damage: 100
-  autoAttackTerm: 0.5
-  weaponImage: {fileID: 21300000, guid: 63f97b18414d224429d35e8dcf2f236f, type: 3}
+  weaponName: "\uAD11\uD3ED\uCC9C\uB8E1"
+  damage: 220000
+  autoAttackTerm: 1.3
+  weaponImage: {fileID: 21300000, guid: f2fc7f15b31f3f54a9a25afe286d1d65, type: 3}
   weaponGrade: 0
-  hitParticcle: {fileID: 5880797563141009103, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+  hitParticcle: {fileID: 4021103657954561960, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}

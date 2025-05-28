@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc2d8c8d4662f448a840cc42060651, type: 3}
   m_Name: BowLv7
   m_EditorClassIdentifier: 
+  weaponName: "\uCF00\uB77C\uC6B0\uB178\uD1A1\uC190"
   damage: 15000
   autoAttackTerm: 0.3
-  weaponImage: {fileID: 0}
+  weaponImage: {fileID: 21300000, guid: 00bad7600f8dfa74cb9ec3714e4d837b, type: 3}
   weaponGrade: 0
   hitParticcle: {fileID: 5880797563141009103, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}

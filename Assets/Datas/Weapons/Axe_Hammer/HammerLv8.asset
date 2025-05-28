@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc2d8c8d4662f448a840cc42060651, type: 3}
   m_Name: HammerLv8
   m_EditorClassIdentifier: 
-  damage: 500000
+  weaponName: "\uBE14\uB85C\uB4DC\uB974\uD558\uB9C8\uB974"
+  damage: 125000
   autoAttackTerm: 1
-  weaponImage: {fileID: 0}
+  weaponImage: {fileID: 21300000, guid: a9345e6a6adc01240bb5c620135f8869, type: 3}
   weaponGrade: 7
   hitParticcle: {fileID: 5985634496115995770, guid: 463cf9f7af4680240898f6aeba3fe3e6, type: 3}

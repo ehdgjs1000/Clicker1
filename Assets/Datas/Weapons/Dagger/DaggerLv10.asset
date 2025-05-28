@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc2d8c8d4662f448a840cc42060651, type: 3}
+  m_Name: DaggerLv10
+  m_EditorClassIdentifier: 
+  weaponName: "\uD63C\uB3C8"
+  damage: 300000
+  autoAttackTerm: 0.2
+  weaponImage: {fileID: 21300000, guid: a811bfb7f523f9d4691d8d4e15f5fb46, type: 3}
+  weaponGrade: 0
+  hitParticcle: {fileID: 4021103657954561960, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}

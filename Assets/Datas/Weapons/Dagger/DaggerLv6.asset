@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5abc2d8c8d4662f448a840cc42060651, type: 3}
-  m_Name: WeaponTest
+  m_Name: DaggerLv6
   m_EditorClassIdentifier: 
-  damage: 50
-  autoAttackTerm: 0.5
-  weaponImage: {fileID: 21300000, guid: a4575d8d00f2e1b41b2f618fdc71d63c, type: 3}
+  weaponName: "\uC2E4\uBC84\uC2A4\uD399\uD130"
+  damage: 3500
+  autoAttackTerm: 0.4
+  weaponImage: {fileID: 21300000, guid: 6b6735a096daadc4188fa0ea79b3295f, type: 3}
   weaponGrade: 0
-  hitParticcle: {fileID: 5880797563141009103, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+  hitParticcle: {fileID: 4021103657954561960, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}

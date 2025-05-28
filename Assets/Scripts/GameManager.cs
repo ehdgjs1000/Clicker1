@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameLevelText;
     [SerializeField] private Image timerImage;
     [SerializeField] private TextMeshProUGUI timerText;
+    private float sec;
+    private float millisec;
 
     [SerializeField] private TextMeshProUGUI goldText;
     public float gold = 0;

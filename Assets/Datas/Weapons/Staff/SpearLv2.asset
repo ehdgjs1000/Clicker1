@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abc2d8c8d4662f448a840cc42060651, type: 3}
+  m_Name: SpearLv2
+  m_EditorClassIdentifier: 
+  weaponName: "\uBF40\uB85C\uB871"
+  damage: 6.5
+  autoAttackTerm: 1.5
+  weaponImage: {fileID: 21300000, guid: 16008b70b36607a4f91cde660ae849a2, type: 3}
+  weaponGrade: 0
+  hitParticcle: {fileID: 4021103657954561960, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
