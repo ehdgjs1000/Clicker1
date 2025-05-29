@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AccountInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static AccountInfo instance;
+
+    [SerializeField] private TextMeshProUGUI goldText;
+    public float gold = 0;
+
+    private void Awake()
     {
-        
+        if(instance == null) instance = this;
+    }
+    private void Start()
+    {
+        GoldUpdate();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GoldUpdate()
     {
-        
+        goldText.text = gold.ToString();
     }
+
 }

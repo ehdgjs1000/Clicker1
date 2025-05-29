@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     }
     private void Attack(Vector3 _clickPos)
     {
-        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        GameObject enemy = GameObject.FindGameObjectWithTag("Monster");
         Monster monster = enemy.GetComponent<Monster>();
         monster.GetDamage(equipedWeapon.damage);
         Instantiate(equipedWeapon.hitParticcle, _clickPos

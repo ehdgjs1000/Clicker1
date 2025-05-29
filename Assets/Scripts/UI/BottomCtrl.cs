@@ -20,6 +20,8 @@ public class BottomCtrl : MonoBehaviour
     public void WeaponBtnOnClick()
     {
         isWeaponPanelOn = true;
+        WeaponPanel.instance.isOpen = true;
+        WeaponPanel.instance.WeaponBgUpdate();
         if (isStorePanelOn) storePanel.transform.DOMoveY(-650, 0.5f);
         weaponPanel.transform.DOMoveY(650,0.5f);
     }

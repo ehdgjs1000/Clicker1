@@ -12,6 +12,7 @@ public class WeaponData : ScriptableObject
     public float autoAttackTerm;
     public Sprite weaponImage;
     public int weaponGrade;
+    public int weaponType;
 
     public ParticleSystem hitParticcle;
 }
