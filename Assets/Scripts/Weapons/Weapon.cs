@@ -20,7 +20,8 @@ public class Weapon : MonoBehaviour
     }
     public void WeaponOnClick()
     {
-        
+        Debug.Log("WeaponType : " + weapon.weaponType + "WeaponGrade : " + weapon.weaponGrade + 
+            " have : " + HaveWeaponInfo.instance.CheckHaveWeapon(weapon.weaponType, weapon.weaponGrade));
         if (HaveWeaponInfo.instance.CheckHaveWeapon(weapon.weaponType, weapon.weaponGrade) != 0)
         {
             Player.instance.equipedWeapon = weapon;

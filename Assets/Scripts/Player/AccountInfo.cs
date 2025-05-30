@@ -8,6 +8,8 @@ public class AccountInfo : MonoBehaviour
     public static AccountInfo instance;
 
     [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI gemText;
+    public float gem = 0;
     public float gold = 0;
 
     private void Awake()
@@ -17,11 +19,16 @@ public class AccountInfo : MonoBehaviour
     private void Start()
     {
         GoldUpdate();
+        GemUpdate();
     }
 
     public void GoldUpdate()
     {
         goldText.text = gold.ToString();
+    }
+    public void GemUpdate()
+    {
+        gemText.text = gem.ToString();
     }
 
 }

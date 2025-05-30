@@ -17,5 +17,5 @@ MonoBehaviour:
   autoAttackTerm: 0.2
   weaponImage: {fileID: 21300000, guid: 4f874f61db80e7947a3929a665de4ca1, type: 3}
   weaponGrade: 9
-  weaponType: 1
+  weaponType: 2
   hitParticcle: {fileID: 5880797563141009103, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}

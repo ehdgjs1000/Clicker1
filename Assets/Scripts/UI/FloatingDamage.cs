@@ -35,18 +35,23 @@ public class FloatingDamage : MonoBehaviour
         transform.DOMoveY(position.y + randomYM, 0.25f);
 
     }
-    public static FloatingDamage Create(Vector3 pos, float damage)
+    public static FloatingDamage Create(Vector3 pos, float damage, bool _critical)
     {
         position = pos;
         Transform damagePopUpTransform = Instantiate(GameAsset.Instance.pfDamagePopUp,
             pos, Quaternion.identity);
         FloatingDamage damagePopUp = damagePopUpTransform.GetComponent<FloatingDamage>();
-        damagePopUp.SetUp(damage);
+        damagePopUp.SetUp(damage, _critical);
+        
 
         return damagePopUp;
     }
-    public void SetUp(float damage)
+    public void SetUp(float damage, bool _critical)
     {
-        damageMesh.SetText(Mathf.FloorToInt(damage).ToString());
+        if (_critical)
+        {
+            damageMesh.color = Color.red;
+        }
+        damageMesh.SetText(damage.ToString("F1"));
     }
 }

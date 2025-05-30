@@ -35,13 +35,13 @@ public class DrawWeapon : MonoBehaviour
 
     public void DrawWeapons(int _drawAmount)
     {
-        if(_drawAmount == 1 && AccountInfo.instance.gold >= 100)
+        if(_drawAmount == 1 && AccountInfo.instance.gem >= 100)
         {
-            AccountInfo.instance.gold -= 100;
+            AccountInfo.instance.gem -= 100;
             DrawOne();
-        }else if (_drawAmount == 10 && AccountInfo.instance.gold >= 990)
+        }else if (_drawAmount == 10 && AccountInfo.instance.gem >= 990)
         {
-            AccountInfo.instance.gold -= 990;
+            AccountInfo.instance.gem -= 990;
             DrawTen();
         }
     }
@@ -103,6 +103,7 @@ public class DrawWeapon : MonoBehaviour
 
 
         int randomWeaponType = Random.Range(0, 5);
+        Debug.Log("Type : " + randomWeaponType + " Grade : " + weaponGrade);
         HaveWeaponInfo.instance.GetWeapon(randomWeaponType, weaponGrade);
         switch (randomWeaponType)
         {
