@@ -15,7 +15,7 @@ public class MonsterSpawner : MonoBehaviour
     public void SpawnMonster(int _gameLevel)
     {
         Instantiate(monsterPrefabs[_gameLevel-1],
-            new Vector3(0,0,0), Quaternion.identity);
+            new Vector3(0,0,0), Quaternion.Euler(0,180,0));
 
     }
 

@@ -23,26 +23,42 @@ public class Player : MonoBehaviour
     {
         if (instance == null) instance = this;
     }
+    private void Start()
+    {
+        //착용했던 장비 착용하기
+        
+        if (PlayerPrefs.HasKey("EquipedWeapon"))
+        {
+            int weaponNum = PlayerPrefs.GetInt("EquipedWeapon");
+            equipedWeapon = WeaponContainer.instance.ReturnWeapon(weaponNum);
+        }
+        
 
+    }
     private void Update()
     {
-        autoAttackTerm -= Time.deltaTime;
-        if (canAutoAttack && autoAttackTerm <= 0.0f)
+        if (equipedWeapon != null)
         {
-            AutoAttack();
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            //수정하기
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Attack(new Vector3(0,1,0));
-        }
+            autoAttackTerm -= Time.deltaTime;
 
-        DPMUpdate();
+            if (canAutoAttack && autoAttackTerm <= 0.0f)
+            {
+                AutoAttack();
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                //수정하기
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Attack(new Vector3(0, 1, 0));
+            }
+
+            DPMUpdate();
+        }
+        
     }
     private void DPMUpdate()
     {
-        dpmText.text = "DPM : " + Mathf.FloorToInt(equipedWeapon.damage * 60).ToString();
+        dpmText.text = "DPM : " + (PlayerStats.instance.upgradeAmount[0] * Mathf.FloorToInt(equipedWeapon.damage * 60)/100).ToString();
 
     }
     public void WeaponChange(WeaponData _weaponData)
@@ -53,14 +69,16 @@ public class Player : MonoBehaviour
     {
         GameObject enemy = GameObject.FindGameObjectWithTag("Monster");
         Monster monster = enemy.GetComponent<Monster>();
+        Debug.Log(monster);
         monster.GetDamage(CalcPlayerStats(equipedWeapon.damage), critical);
         Instantiate(equipedWeapon.hitParticcle, _clickPos
             , Quaternion.identity);
+
     }
     private void AutoAttack()
     {
         autoAttackTerm = equipedWeapon.autoAttackTerm;
-        GameObject enemy =  GameObject.FindGameObjectWithTag("Enemy");
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");        
         Monster monster = enemy.GetComponent<Monster>();
         monster.GetDamage(CalcPlayerStats(equipedWeapon.damage), critical);
         Instantiate(equipedWeapon.hitParticcle, monster.transform.position, Quaternion.identity);

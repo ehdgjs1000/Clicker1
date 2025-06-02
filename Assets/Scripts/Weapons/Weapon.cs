@@ -27,6 +27,9 @@ public class Weapon : MonoBehaviour
             Player.instance.equipedWeapon = weapon;
             EquipedWeapon.instance.UpdateEquipedWeaponInfo(weapon.weaponImage, weapon.weaponName);
         }
+
+        //장착 무기 저장
+        PlayerPrefs.SetInt("EquipedWeapon", weapon.weaponType *10 + weapon.weaponGrade);
     }
     private void InitWeaponInfo()
     {

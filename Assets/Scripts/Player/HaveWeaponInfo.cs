@@ -51,7 +51,7 @@ public class HaveWeaponInfo : MonoBehaviour
                 break;
         }
         //Json 연동하기
-
+        
     }
 
 

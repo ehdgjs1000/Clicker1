@@ -32,6 +32,10 @@ public class UpgradeManager : MonoBehaviour
         upgradeCost[1] = Mathf.FloorToInt(500 * Mathf.Pow(1.1f, PlayerStats.instance.upgradeLevel[1]));
         upgradeCost[2] = Mathf.FloorToInt(10000 * Mathf.Pow(1.1f, PlayerStats.instance.upgradeLevel[2]));
         upgradeCost[3] = Mathf.FloorToInt(50000 * Mathf.Pow(1.5f, PlayerStats.instance.upgradeLevel[3]));
+        for (int a = 0; a < upgradeGos.Length; a++)
+        {
+            upgradeGos[a].UpdateInfo(a);
+        }
     }
 
     public void PowerUpgradeOnClick()
@@ -43,6 +47,7 @@ public class UpgradeManager : MonoBehaviour
             AccountInfo.instance.GoldUpdate();
             PlayerStats.instance.upgradeAmount[0] += 5;
             PlayerStats.instance.upgradeLevel[0]++;
+            SavePlayerPrefabs.instance.SaveUpgrade();
             upgradeGos[0].UpdateInfo(0);
         }
         
@@ -56,6 +61,7 @@ public class UpgradeManager : MonoBehaviour
             AccountInfo.instance.GoldUpdate();
             PlayerStats.instance.upgradeAmount[1] += 1;
             PlayerStats.instance.upgradeLevel[1]++;
+            SavePlayerPrefabs.instance.SaveUpgrade();
             upgradeGos[1].UpdateInfo(1);
         }
         
@@ -69,6 +75,7 @@ public class UpgradeManager : MonoBehaviour
             AccountInfo.instance.GoldUpdate();
             PlayerStats.instance.upgradeAmount[2] += 10;
             PlayerStats.instance.upgradeLevel[2]++;
+            SavePlayerPrefabs.instance.SaveUpgrade();
             upgradeGos[2].UpdateInfo(2);
         }
         
@@ -82,6 +89,7 @@ public class UpgradeManager : MonoBehaviour
             AccountInfo.instance.GoldUpdate();
             PlayerStats.instance.upgradeAmount[3] *= 0.97f;
             PlayerStats.instance.upgradeAmount[3]++;
+            SavePlayerPrefabs.instance.SaveUpgrade();
             upgradeGos[3].UpdateInfo(3);
         }
         

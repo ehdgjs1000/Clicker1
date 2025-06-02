@@ -15,6 +15,7 @@ public class AccountInfo : MonoBehaviour
     private void Awake()
     {
         if(instance == null) instance = this;
+        SavePlayerPrefabs.instance.LoadAccount();
     }
     private void Start()
     {
@@ -25,10 +26,12 @@ public class AccountInfo : MonoBehaviour
     public void GoldUpdate()
     {
         goldText.text = gold.ToString();
+        SavePlayerPrefabs.instance.SaveAccount();
     }
     public void GemUpdate()
     {
         gemText.text = gem.ToString();
+        SavePlayerPrefabs.instance.SaveAccount();
     }
 
 }

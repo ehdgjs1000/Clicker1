@@ -38,10 +38,12 @@ public class DrawWeapon : MonoBehaviour
         if(_drawAmount == 1 && AccountInfo.instance.gem >= 100)
         {
             AccountInfo.instance.gem -= 100;
+            AccountInfo.instance.GemUpdate();
             DrawOne();
         }else if (_drawAmount == 10 && AccountInfo.instance.gem >= 990)
         {
             AccountInfo.instance.gem -= 990;
+            AccountInfo.instance.GemUpdate();
             DrawTen();
         }
     }
@@ -70,6 +72,7 @@ public class DrawWeapon : MonoBehaviour
         draw1G0.weaponData = draw1Data;
         draw1G0.WeaponDataUpdate();
         AccountInfo.instance.GoldUpdate();
+        SaveJson.instance.SaveHaveWeapon();
     }
     private void DrawTen()
     {
@@ -82,6 +85,7 @@ public class DrawWeapon : MonoBehaviour
             draw10G0s[a].WeaponDataUpdate();
         }
         AccountInfo.instance.GoldUpdate();
+        SaveJson.instance.SaveHaveWeapon();
     }
     private WeaponData Draw()
     {
@@ -103,7 +107,6 @@ public class DrawWeapon : MonoBehaviour
 
 
         int randomWeaponType = Random.Range(0, 5);
-        Debug.Log("Type : " + randomWeaponType + " Grade : " + weaponGrade);
         HaveWeaponInfo.instance.GetWeapon(randomWeaponType, weaponGrade);
         switch (randomWeaponType)
         {

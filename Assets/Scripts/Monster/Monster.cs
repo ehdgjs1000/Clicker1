@@ -39,6 +39,7 @@ public class Monster : MonoBehaviour
     public void Reset()
     {
         hp = initHp;
+        GameManager.instance.HpGageUpdate(initHp, hp);
     }
     public void GetDamage(float _damage, bool _critical)
     {
@@ -57,6 +58,10 @@ public class Monster : MonoBehaviour
         hp += regenHpAmount;
         if (hp >= initHp) hp = initHp;
         regenHpTime = tempRegenHpTime;
+    }
+    public void Eliminate()
+    {
+        Destroy(this.gameObject);
     }
     protected void Die()
     {

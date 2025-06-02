@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameLevelText;
     [SerializeField] private Image timerImage;
     [SerializeField] private TextMeshProUGUI timerText;
-    private float sec = 3;
+    private float sec = 60;
 
     //Game Level System
     private int gameLevel = 1;
@@ -42,15 +42,37 @@ public class GameManager : MonoBehaviour
     {
         sec -= Time.deltaTime;
         timerText.text = Mathf.Ceil(sec).ToString();
+        timerImage.fillAmount = sec / 60;
         if(sec <= 0)
         {
             ResetGame();
         }
     }
+    public void BeforeBtn()
+    {
+        if (gameLevel > 1)
+        {
+            GameObject monsterGo = GameObject.FindGameObjectWithTag("Monster");
+            Monster monster = monsterGo.GetComponent<Monster>();
+            monster.Eliminate();
+            gameLevel--;
+            MonsterSpawner.instance.SpawnMonster(gameLevel);
+            ResetGame();
+        }
+    }
+    public void NextBtn()
+    {
+
+    }
+    public void ReTryOnClick()
+    {
+        ResetGame();
+    }
     public IEnumerator RoundClear()
     {
         gameLevel++;
         MonsterSpawner.instance.SpawnMonster(gameLevel);
+        ResetGame();
         yield return null;
     }
 
@@ -64,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
         if(_nowHp <= 0.0f) _nowHp = 0.0f;
         hpImage.fillAmount = (_nowHp / _initHp);
-        hpText.text = _nowHp.ToString();
+        hpText.text = _nowHp.ToString("F1");
     }
 
 }
