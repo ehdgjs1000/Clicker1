@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     //Game Level System
     private int gameLevel = 1;
+    private int saveGameLevel = 0;
 
     private void Awake()
     {
@@ -30,6 +31,15 @@ public class GameManager : MonoBehaviour
 
         gameLevelText.text = gameLevel.ToString();
         
+    }
+    private void Start()
+    {
+        saveGameLevel = PlayerPrefs.GetInt("saveGameLevel");
+        MonsterSpawner.instance.SpawnMonster(saveGameLevel);
+    }
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("saveGameLevel", gameLevel);
     }
     public void ResetGame()
     {

@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfDamagePopUp: {fileID: 2124745318732097044, guid: 53b8a4dfb6bbb964d8722aaff891e4bc, type: 3}
+  pfGoldPopUp: {fileID: 2124745318732097044, guid: 1e04468b0592ee14388c4ab02574740b, type: 3}

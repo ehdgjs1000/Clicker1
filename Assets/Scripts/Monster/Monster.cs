@@ -14,6 +14,8 @@ public class Monster : MonoBehaviour
     public int gold;
     private bool isDie = false;
 
+    Animator anim;
+
 
     protected void InitMonster(float _hp, float _regenHpAmount, float _regenHpTime, string _monsterName)
     {
@@ -23,6 +25,10 @@ public class Monster : MonoBehaviour
         regenHpTime = _regenHpTime;
         tempRegenHpTime = _regenHpTime;
         monsterName = _monsterName;
+    }
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -40,6 +46,10 @@ public class Monster : MonoBehaviour
     {
         hp = initHp;
         GameManager.instance.HpGageUpdate(initHp, hp);
+    }
+    private void InitAnimation()
+    {
+
     }
     public void GetDamage(float _damage, bool _critical)
     {
@@ -68,6 +78,7 @@ public class Monster : MonoBehaviour
         Debug.Log("Monster Die");
         isDie = true;
 
+        FloatingGold.Create(this.transform.position, gold);
         //GameManager
         AccountInfo.instance.gold += gold;
         AccountInfo.instance.GoldUpdate();
